@@ -59,5 +59,9 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
+  # devise
+  config.action_mailer.default_url_options = { :host => ENV['DEVISE_DEFAULT_URL_OPTIONS'] }
+
+  # better_errors
   BetterErrors::Middleware.allow_ip! ENV['BETTER_ERRORS_ALLOW_IP']
 end
