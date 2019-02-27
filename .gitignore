@@ -10,6 +10,9 @@
 # Ignore bundler gems.
 vendor/bundle
 
+# Ignore dotenv config.
+.env
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
