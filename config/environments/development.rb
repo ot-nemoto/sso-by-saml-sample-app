@@ -60,8 +60,8 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   # devise
-  config.action_mailer.default_url_options = { :host => ENV['DEVISE_DEFAULT_URL_OPTIONS'] }
+  config.action_mailer.default_url_options = { :host => (ENV['DEVISE_DEFAULT_URL_OPTIONS'] || 'localhost:3000') }
 
   # better_errors
-  BetterErrors::Middleware.allow_ip! ENV['BETTER_ERRORS_ALLOW_IP']
+  BetterErrors::Middleware.allow_ip! (ENV['BETTER_ERRORS_ALLOW_IP'] || '127.0.0.1')
 end
