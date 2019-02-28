@@ -1,16 +1,19 @@
 h1
-  | Home#indexxx
-p
-  | Find me in app/views/home/index.html.erb
+  | SAML認証
 
 = link_to "#{ENV['OPENAM_URI']}", { class: 'btn btn-primary', target: '_blank' } do
   | OpenAM
 
 .
-  | #{current_user.email unless current_user.nil?}
+  | OpenAM Username: #{current_user.email unless current_user.nil?}
 .
-  | #{current_user.encrypted_password unless current_user.nil?}
+  | OpenAM Password: #{current_user.encrypted_password unless current_user.nil?}
 
 .
-  = link_to "#{ENV['OPENAM_URI']}/saml2/jsp/idpSSOInit.jsp?metaAlias=/idp&spEntityID=urn:amazon:webservices", { class: 'btn btn-primary', target: '_blank' } do
+  = link_to "#{ENV['OPENAM_URI']}/saml2/jsp/idpSSOInit.jsp?metaAlias=/idp&spEntityID=urn:amazon:webservices",
+      { class: 'btn btn-primary', target: '_blank' } do
     | AWS by OpenAM
+
+.
+  = link_to aws_openam_path, { class: 'btn btn-primary', target: '_blank' } do
+    | Direct AWS by OpenAM
