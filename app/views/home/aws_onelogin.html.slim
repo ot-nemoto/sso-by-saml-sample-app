@@ -1,0 +1,9 @@
+html
+  head
+    title
+      | Access rights validated
+  body[onload="document.forms[0].submit()"]
+    form[method="post" action="https://signin.aws.amazon.com/saml"]
+      input[type="hidden" name="SAMLResponse" value="#{@saml_assertion}"]
+      noscript
+        input[type="submit" value="Submit SAMLResponse data"]

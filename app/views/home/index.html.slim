@@ -10,10 +10,18 @@ h1
   | OpenAM Password: #{current_user.encrypted_password unless current_user.nil?}
 
 .
-  = link_to "#{ENV['OPENAM_URI']}/saml2/jsp/idpSSOInit.jsp?metaAlias=/idp&spEntityID=urn:amazon:webservices",
-      { class: 'btn btn-primary', target: '_blank' } do
+  = link_to aws_openam_path, { class: 'btn btn-primary', target: '_blank' } do
     | AWS by OpenAM
 
 .
-  = link_to aws_openam_path, { class: 'btn btn-primary', target: '_blank' } do
-    | Direct AWS by OpenAM
+  = link_to "#{ENV['ONELOGIN_URI']}", { class: 'btn btn-success', target: '_blank' } do
+    | onelogin
+
+.
+  | onelogin Username: #{current_user.email unless current_user.nil?}
+.
+  | onelogin Password: #{current_user.encrypted_password unless current_user.nil?}
+
+.
+  = link_to aws_onelogin_path, { class: 'btn btn-success', target: '_blank' } do
+    | AWS by onelogin

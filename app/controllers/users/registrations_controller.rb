@@ -3,18 +3,27 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     super
 
-    Idp::Openam.new(resource).create_user if resource.errors.count.zero?
+    if resource.errors.count.zero?
+      Idp::Openam.new(resource).create_user
+      Idp::Onelogin.new(resource).create_user.assign_role.change_password
+    end
   end
 
   def update
     super
 
-    Idp::Openam.new(resource).change_password if resource.errors.count.zero?
+    if resource.errors.count.zero?
+      Idp::Openam.new(resource).change_password
+      Idp::Onelogin.new(resource).change_password
+    end
   end
 
   def destroy
     super
 
-    Idp::Openam.new(resource).delete_user if resource.errors.count.zero?
+    if resource.errors.count.zero?
+      Idp::Openam.new(resource).delete_user
+      Idp::Onelogin.new(resource).delete_user
+    end
   end
 end

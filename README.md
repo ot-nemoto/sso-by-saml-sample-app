@@ -58,12 +58,17 @@ bundle exec rake db:migrate
 |変数名|設定値|
 |--|--|
 |DEVISE_DEFAULT_URL_OPTIONS|パスワードを忘れた際に送信するメールのリダイレクト先のURLを指定<br>default: `localhost:3000`|
-|BETTER_ERRORS_ALLOW_IP|`better_errors` は開発環境がリモート環境の場合に動作しないため、動作を許可させるIPアドレスを指定<br>default: `127.0.0.1`|
-|OPENAM_URI|OpenAMのURIを指定<br>default: `http://localhost:3000/openam`|
-|OPENAM_ADMIN_USER|OpenAMのAdminユーザのユーザ名<br>default: `amAdmin`|
-|OPENAM_ADMIN_PASS|OpenAMのAdminユーザのパスワード<br>default: `password`|
-|OPENAM_AWS_ROLE_ARN|OpenAMユーザがログインする際のAWSロールのARN|
-|OPENAM_AWS_ID_PROVIDER_ARN|OpenAMユーザのロールの信頼されたエンティティのARN|
+|BETTER_ERRORS_ALLOW_IP|`better_errors` は開発環境がリモート環境の場合に動作しないため、動作を許可させるIPアドレスを 指定<br>default: `127.0.0.1`|
+|OPENAM_URI|OpenAMのURIを指定|
+|OPENAM_ADMIN_USER|OpenAMのAdminユーザのユーザ名|
+|OPENAM_ADMIN_PASS|OpenAMのAdminユーザのパスワード|
+|OPENAM_AWS_ROLE_ARN|OpenAMユーザがログインする際のAWSロールのARN<br>例: `arn:aws:iam::<Account Id>:role/<Role Name>`|
+|OPENAM_AWS_ID_PROVIDER_ARN|OpenAMユーザのロールの信頼されたエンティティのARN<br>例) `arn:aws:iam::<Account Id>:saml-provider/<Provider Name>`|
+|ONELOGIN_URI|onloginのURLを指定<br>例) `https://<OneLogin Domain>/onlgoin.com`|
+|ONELOGIN_CLIENT_ID|Adminユーザでログインし DEVELOPERS > API Credentials で登録したクライアントID|
+|ONELOGIN_CLIENT_SECRET|Adminユーザでログインし DEVELOPERS > API Credentials で登録したシークレットID|
+|ONELOGIN_ROLE_ID|Adminユーザでログインし USERS > Roles > `Role` のURLから確認できるロールID|
+|ONELOGIN_APP_ID|Adminユーザでログインし APPS > Company Apps > `App` のURLから確認できるアプリID|
 
 ### 起動
 
